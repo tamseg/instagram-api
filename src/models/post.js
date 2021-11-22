@@ -6,8 +6,8 @@ const postSchema = new mongoose.Schema({
         type: String,
     },
     author: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
+        type: mongoose.Types.ObjectId,
+        ref: "user",
         required: true
     },
     likes: {

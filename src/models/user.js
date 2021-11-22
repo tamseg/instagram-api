@@ -16,12 +16,16 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    following: {
+        type: Array,
+        default: []
+    },
     createdAt: {
         type: Date,
         default: () => new Date()
     }
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('user', userSchema);
 
 module.exports = User;
