@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const routes = require('./config/routes');
 const app = express();
 const cors = require('cors');
-const port = 4000;
+const port = process.env.POT || 4000;
 const env = require('./config/env/index');
 
 app.use(cors());
@@ -11,7 +11,7 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(routes);
 
-mongoose.connect('mongodb://localhost:27017/instagram')
+mongoose.connect(env.mongoUrl)
     .then(listen)
     .catch(err => console.error(err));
 
